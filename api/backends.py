@@ -4,7 +4,13 @@ from .models import CustomUser
 
 
 class EmailBackend(ModelBackend):
-    def authenticate(self, request, username=None, password=None, email=None, **kwargs):
+    def authenticate(self,
+    request,
+    username=None,
+    password=None,
+    email=None,
+    **kwargs
+    ):
         UserModel = CustomUser
         try:
             user = UserModel.objects.get(email=kwargs['email'])
